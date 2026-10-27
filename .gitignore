@@ -1,0 +1,24 @@
+# Solver workspaces and large generated files (curated native models under models/ are exceptions)
+*.cst~
+*.mph~
+*.log
+*.bak
+*.tmp
+*.lock
+*.lck
+*.class
+*.obj
+*.exe
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+*.partial
+JAVA_BUILD/
+**/CST_PROJECT_RUNS/
+**/temp/
+**/cache/
+# Do not commit full raw project backups or bundles
+*.rar
+*.7z
+*.zip

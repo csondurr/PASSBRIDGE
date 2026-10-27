@@ -1,0 +1,11 @@
+*.ps1 text eol=crlf
+*.py text eol=lf
+*.java text eol=lf
+*.m text eol=lf
+*.md text eol=lf
+*.csv text
+*.json text
+*.png binary
+*.cst binary
+*.mph binary
+*.stl binary

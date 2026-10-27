@@ -1,0 +1,11 @@
+﻿PASSBRIDGE - GitHub Publication Audit
+Created (local): 
+2026-10-27T01:58:05
+No RF/FEM/MATLAB solver was started by this collector.
+Large CST run projects, solver caches, old patch archives and repeated models excluded by design.
+Source results bundled from the previously submitted successful package; on-disk native files preferred where available.
+If a model is marked EXTERNAL, reproducibility in GUI requires separate access to that original model.
+DO NOT claim complete structural mesh convergence or physical field validation.
+
+[SEED] Simulation assumptions retained from previously submitted results
+[INFO] Native CST records included: 75 TE/TM pairs

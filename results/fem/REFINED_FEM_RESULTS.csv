@@ -1,0 +1,4 @@
+﻿"mesh_size","windspeed_m_s","pressure_Pa","max_displacement_mm","max_mises_MPa","solver_status","project_file"
+"4","15","248.062500000","0.153042762","9.720235737","SOLVED_EXPORTED","G1_MESH4_W15.mph"
+"4","25","689.062500000","0.425118782","27.000654762","SOLVED_EXPORTED","G1_MESH4_W25.mph"
+"4","35","1350.562500000","0.833232819","52.921283354","SOLVED_EXPORTED","G1_MESH4_W35.mph"

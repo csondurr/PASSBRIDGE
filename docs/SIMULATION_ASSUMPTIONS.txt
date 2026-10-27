@@ -1,0 +1,5 @@
+20 MHz baseband, uncoded QPSK, 64-point OFDM, 52 data bins, CP16, 14 symbols per frame, 200 Monte Carlo packets per condition.
+Effective channel: frequency-flat AWGN with signal/noise power determined by genuine CST FEM-RCS plus assumed EIRP, antenna gains, noise figure and external losses.
+This simulation does not implement actual Wi-Fi MAC, channel coding, practical fading, interference, receive sensitivity, fading or packet retransmissions.
+NO_REFLECTOR condition assumes no alternate RF propagation path; it is not a terrain ray-tracing measurement.
+Strongest claim supported: conditional digital link feasibility under stipulated RF scenario; not field throughput.

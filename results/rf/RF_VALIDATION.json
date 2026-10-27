@@ -1,0 +1,15 @@
+{
+  "success_native_pol_cases": 150,
+  "expected_native_pol_cases": 150,
+  "complete": true,
+  "source": "CST native complex scattered field, not COMSOL fullwave or field measurement",
+  "link_assumptions": {
+    "EIRP_dBm": 29,
+    "Gr_dBi": 23,
+    "R1_m": 500,
+    "R2_m": 500,
+    "external_loss_dB": 6,
+    "NF_dB": 7,
+    "bandwidth_Hz": 20000000.0
+  }
+}

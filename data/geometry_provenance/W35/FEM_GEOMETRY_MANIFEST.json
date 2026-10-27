@@ -1,0 +1,70 @@
+{
+  "total_numeric_rows": 50807,
+  "front_surface_rows": 12815,
+  "xy_coord_to_mm": 1000.0,
+  "uvw_to_mm": 1000.0,
+  "max_front_displacement_mm": 0.8332249784724749,
+  "header_preview": [
+    "% Model:              G1_MESH4_W35.mph",
+    "% Version:            COMSOL 6.4.0.429",
+    "% Date:               Oct 26 2026, 18:42",
+    "% Dimension:          3",
+    "% Nodes:              50807",
+    "% Expressions:        4",
+    "% Description:        Displacement field, X-component, Displacement field, Y-component, Displacement field, Z-component, Displacement magnitude",
+    "% Length unit:        m",
+    "% X                       Y                        Z                        u (m)                    v (m)                    w (m)                    solid.disp (m)"
+  ],
+  "wind_m_s": 35,
+  "source_FEM_file": "C:\\Users\\CEM\\Desktop\\PASSBRIDGE_COMSOL_FINAL\\TAM_PANEL_FEM\\G1_MESH4_W35_DISPLACEMENT.txt",
+  "geometry_type": "ACTUAL_COMSOL_FEM_UVW_IDW_INTERPOLATION",
+  "interpolation": "8-point 2D inverse distance weighting of COMSOL front surface; no synthetic bending field",
+  "grid_nodes_per_axis": 41,
+  "max_nearest_support_mm": 19.911938651221995,
+  "front_z_min_mm": -0.821333051750092,
+  "front_z_max_mm": 0.00026870621606802183,
+  "layers": [
+    {
+      "triangles": 6720,
+      "volume_mm3": 2397623.106281348,
+      "file": "C:\\Users\\CEM\\Desktop\\PASSBRIDGE_FINAL\\DIGITAL_TWIN_FINAL\\03_FEM_STL\\W35\\FEM_W35_Core_Left.stl",
+      "layer": "Core",
+      "side": "Left"
+    },
+    {
+      "triangles": 6720,
+      "volume_mm3": 38481.86024573009,
+      "file": "C:\\Users\\CEM\\Desktop\\PASSBRIDGE_FINAL\\DIGITAL_TWIN_FINAL\\03_FEM_STL\\W35\\FEM_W35_ZincFront_Left.stl",
+      "layer": "ZincFront",
+      "side": "Left"
+    },
+    {
+      "triangles": 6720,
+      "volume_mm3": 38481.84149380579,
+      "file": "C:\\Users\\CEM\\Desktop\\PASSBRIDGE_FINAL\\DIGITAL_TWIN_FINAL\\03_FEM_STL\\W35\\FEM_W35_ZincBack_Left.stl",
+      "layer": "ZincBack",
+      "side": "Left"
+    },
+    {
+      "triangles": 6720,
+      "volume_mm3": 2397622.8295316105,
+      "file": "C:\\Users\\CEM\\Desktop\\PASSBRIDGE_FINAL\\DIGITAL_TWIN_FINAL\\03_FEM_STL\\W35\\FEM_W35_Core_Right.stl",
+      "layer": "Core",
+      "side": "Right"
+    },
+    {
+      "triangles": 6720,
+      "volume_mm3": 38481.85566485479,
+      "file": "C:\\Users\\CEM\\Desktop\\PASSBRIDGE_FINAL\\DIGITAL_TWIN_FINAL\\03_FEM_STL\\W35\\FEM_W35_ZincFront_Right.stl",
+      "layer": "ZincFront",
+      "side": "Right"
+    },
+    {
+      "triangles": 6720,
+      "volume_mm3": 38481.83713418437,
+      "file": "C:\\Users\\CEM\\Desktop\\PASSBRIDGE_FINAL\\DIGITAL_TWIN_FINAL\\03_FEM_STL\\W35\\FEM_W35_ZincBack_Right.stl",
+      "layer": "ZincBack",
+      "side": "Right"
+    }
+  ]
+}

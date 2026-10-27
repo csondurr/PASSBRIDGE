@@ -1,0 +1,16 @@
+{
+  "digital_pipeline_complete": true,
+  "mesh_screen_passed": false,
+  "low_quality_mesh_warning": true,
+  "reported_status": "END_TO_END_SIMULATED_WITH_NUMERICAL_CAVEATS",
+  "notes": [
+    "PASSBRIDGE G1 / numerical digital-twin evidence only",
+    "CST model uses two finite-conductivity DX51D+Z275 sheets; COMSOL structural steel law is provisional.",
+    "FEM front-surface u,v,w sampled and IDW-interpolated into closed finite-thickness RF solids.",
+    "Wind is uniform pressure from a simplified force coefficient, not a code-prescribed site load.",
+    "Finite-height / 2D beam support and true welded/bolted joint stiffness are not independently certified.",
+    "Only 5.5 GHz field data drive the flat AWGN channel; not 802.11 MAC or measured throughput.",
+    "No-reflector is modeled with blocked direct path; alternate multipath not simulated.",
+    "Fullwave IE, actual site measurements, material test reports, and production certification are OUTSIDE this digital acceptance stage."
+  ]
+}
