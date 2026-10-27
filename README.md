@@ -108,12 +108,12 @@ At 5.5 GHz, a physically continuous metallic coating provides an electrically co
 
 The free-space wavelength at the design frequency is
 
-\[
+$$
 \lambda_0=\frac{c}{f}
 =\frac{299\,792\,458}{5.5\times10^9}
 \approx 54.51\ \mathrm{mm}.
 \tag{1}
-\]
+$$
 
 Thus, the nominal 2 m reflector spans approximately **36.7 free-space wavelengths** along each side. This electrical size informs the choice of a high-frequency asymptotic scattering method.
 
@@ -121,62 +121,62 @@ Thus, the nominal 2 m reflector spans approximately **36.7 free-space wavelength
 
 For a homogeneous good conductor,
 
-\[
+$$
 \delta=\sqrt{\frac{2}{\omega\mu\sigma}}
 =\frac{1}{\sqrt{\pi f\mu\sigma}},
 \quad
 \omega=2\pi f.
 \tag{2}
-\]
+$$
 
-With the assumed conductivities and \(\mu=\mu_0\), the estimated skin depths at 5.5 GHz are approximately **1.65 µm for zinc** and **2.77 µm for steel**. These are first-order planar-conductor estimates, not measured effective coating impedances.
+With the assumed conductivities and $\mu=\mu_0$, the estimated skin depths at 5.5 GHz are approximately **1.65 µm for zinc** and **2.77 µm for steel**. These are first-order planar-conductor estimates, not measured effective coating impedances.
 
 An approximate good-conductor surface impedance is
 
-\[
+$$
 Z_s\simeq(1+j)\sqrt{\frac{\omega\mu}{2\sigma}}.
 \tag{3}
-\]
+$$
 
 ### 4.3 Bistatic radar cross section
 
 A passive reflector serving spatially separated transmitter and receiver antennas is assessed using **bistatic** scattering. In far-field form,
 
-\[
+$$
 \sigma_b
 =\lim_{R\to\infty}4\pi R^2
 \frac{|E_{\mathrm{scat}}|^2}{|E_{\mathrm{inc}}|^2}.
 \tag{4}
-\]
+$$
 
 The released postprocessor operates on the specific normalization of the archived CST native complex-field export:
 
-\[
+$$
 \sigma_b=4\pi\left(|E_\phi|^2+|E_\theta|^2\right),
 \qquad
 \sigma_{\mathrm{dBsm}}=10\log_{10}\sigma_b.
 \tag{5}
-\]
+$$
 
 **Normalization matters:** Equation (5) reflects the convention used in [DOGRULA_RCS.py](src/pipeline/DOGRULA_RCS.py); it should not be applied to arbitrary electric-field data without establishing the incident amplitude and far-field distance conventions.
 
-The reported receiving direction is **\(\theta=45^\circ,\phi=0^\circ\)**. The maximum of the exported angular cut is retained as separate information; it is **not substituted** for the fixed receiver direction in the link budget.
+The reported receiving direction is **$\theta=45^\circ,\phi=0^\circ$**. The maximum of the exported angular cut is retained as separate information; it is **not substituted** for the fixed receiver direction in the link budget.
 
 ### 4.4 Two-segment bistatic link budget
 
 The scenario uses
 
-\[
+$$
 P_r=\frac{\mathrm{EIRP}\,G_r\,\lambda_0^2\,\sigma_b}
 {(4\pi)^3 R_1^2 R_2^2\,L_{\mathrm{ext}}},
 \tag{6}
-\]
+$$
 
-where \(\mathrm{EIRP}\) already incorporates transmit antenna gain, \(G_r\) is the receiver antenna's linear gain, \(R_1,R_2\) are the two distances, and \(L_{\mathrm{ext}}\) is additional linear loss.
+where $\mathrm{EIRP}$ already incorporates transmit antenna gain, $G_r$ is the receiver antenna's linear gain, $R_1,R_2$ are the two distances, and $L_{\mathrm{ext}}$ is additional linear loss.
 
 The equivalent calculation in decibel form is
 
-\[
+$$
 \begin{aligned}
 P_r[\mathrm{dBm}]={}&
 \mathrm{EIRP}[\mathrm{dBm}]+G_r[\mathrm{dBi}]
@@ -185,7 +185,7 @@ P_r[\mathrm{dBm}]={}&
 &-20\log_{10}R_1-20\log_{10}R_2-L_{\mathrm{ext}}[\mathrm{dB}].
 \end{aligned}
 \tag{7}
-\]
+$$
 
 All lengths in Eq. (7) are expressed in **meters**.
 
@@ -201,14 +201,14 @@ All lengths in Eq. (7) are expressed in **meters**.
 
 With room-temperature thermal noise approximated as −174 dBm/Hz,
 
-\[
+$$
 N[\mathrm{dBm}]\simeq -174+
 10\log_{10}(20\times10^6)+7
-=\mathbf{-93.99\ dBm}.
+=-93.99\ \mathrm{dBm}.
 \tag{8}
-\]
+$$
 
-The listed SNR is calculated as \(P_r-N\). None of these values establishes a measured receiver sensitivity or availability probability.
+The listed SNR is calculated as $P_r-N$. None of these values establishes a measured receiver sensitivity or availability probability.
 
 ## 5. Multiphysics simulation workflow
 
@@ -224,12 +224,12 @@ The listed SNR is calculated as \(P_r-N\). None of these values establishes a me
 
 The simplified pressure model is
 
-\[
+$$
 p=\tfrac12\rho_{\mathrm{air}}C_fV^2,
 \qquad \rho_{\mathrm{air}}=1.225\ \mathrm{kg/m^3},
 \quad C_f=1.8.
 \tag{9}
-\]
+$$
 
 | Wind speed | Uniform applied pressure |
 |--:|--:|
@@ -241,18 +241,18 @@ These are **illustrative static engineering scenarios**, not a code-prescribed, 
 
 ### 5.2 FEM-to-RF surface reconstruction
 
-The solved COMSOL field exports actual **\(u,v,w\)** displacements. The front surface is reconstructed through eight-neighbor inverse-distance-weighted interpolation:
+The solved COMSOL field exports actual **$u,v,w$** displacements. The front surface is reconstructed through eight-neighbor inverse-distance-weighted interpolation:
 
-\[
+$$
 \widehat{\mathbf u}(\mathbf x)=
-\frac{\sum_{i=1}^{8}w_i(\mathbf x)\mathbf u_i}
-{\sum_{i=1}^{8}w_i(\mathbf x)},
-\quad
-w_i=d_i^{-p},
+\frac{\displaystyle\sum_{i=1}^{8}w_i(\mathbf x)\mathbf u_i}
+{\displaystyle\sum_{i=1}^{8}w_i(\mathbf x)},
+\qquad
+w_i(\mathbf x)=\frac{1}{d_i^2+10^{-4}\,\mathrm{mm}^2}.
 \tag{10}
-\]
+$$
 
-with the interpolation settings specified in [FEMDEN_STL.py](src/pipeline/FEMDEN_STL.py).
+where $d_i$ denotes in-plane distance measured in millimeters; the $10^{-4}\,\mathrm{mm}^2$ regularizer follows the implementation in [FEMDEN_STL.py](src/pipeline/FEMDEN_STL.py). At an exactly coincident sample coordinate, the implementation uses that sample directly rather than the weighted average.
 
 Each wind scenario produces **six closed finite-thickness metal solids**: core, front zinc, and back zinc for each of the two panel halves. The repository includes [three displacement tables](data/fem_displacement/) and [geometry manifests](data/geometry_provenance/), rather than 75 redundant full CST projects and intermediate caches.
 
@@ -262,11 +262,11 @@ The 35 m/s mesh-4 geometry manifest records **50,807 numeric FEM rows**, **12,81
 
 At each wind speed, the two pointing axes are sampled using
 
-\[
+$$
 \alpha_x,\alpha_y\in
 \{-0.2^\circ,-0.1^\circ,0^\circ,+0.1^\circ,+0.2^\circ\}.
 \tag{11}
-\]
+$$
 
 The 5 × 5 pointing grid yields **25 orientations per wind speed**, so the full campaign comprises **75 reflector conditions** and **150 TE/TM field records**. The panel is modeled with finite-conductivity layers in the **SBR asymptotic solver**, not an independent full-wave IE/MLFMM simulation.
 
@@ -284,7 +284,7 @@ The published MATLAB analysis consumes the calculated link SNR and models a **fr
 
 ### 6.1 Receiver-direction RCS in aligned cases
 
-All values below are taken from the **\((0^\circ,0^\circ)\)** aligned rows of [LINK_CASES.csv](results/rf/LINK_CASES.csv).
+All values below are taken from the **$(0^\circ,0^\circ)$** aligned rows of [LINK_CASES.csv](results/rf/LINK_CASES.csv).
 
 | Wind | TE RCS | TM RCS | TE received power | TM received power |
 |--:|--:|--:|--:|--:|
@@ -298,7 +298,7 @@ All values below are taken from the **\((0^\circ,0^\circ)\)** aligned rows of [L
 
 Each row below is the **minimum over the 25 discrete modeled pointing positions** for that wind/polarization combination.
 
-| Wind | Pol. | Worst \(P_r\) | X offset | Y offset | SNR |
+| Wind | Pol. | Worst $P_r$ | X offset | Y offset | SNR |
 |--:|:--:|--:|--:|--:|--:|
 | 15 m/s | TE | −75.8834 dBm | −0.2° | +0.2° | 18.1063 dB |
 | 15 m/s | TM | −75.8975 dBm | −0.2° | −0.2° | 18.0922 dB |
@@ -311,7 +311,7 @@ The most adverse calculated receiver power is **−75.9011 dBm** at **35 m/s, TM
 
 #### Native-field cross-check
 
-A reader can open the [worst-case TM field](data/cst_native/FEM_W35_Xm0p2_Ym0p2/TM.txt), identify the **5.5 GHz, \(\phi_{\mathrm{obs}}=0^\circ,\theta_{\mathrm{obs}}=45^\circ\)** row, reconstruct the squared magnitude from the four real/imaginary field components, and apply Eqs. (5) and (7) using the exported convention. The corresponding [link-table row](results/rf/LINK_CASES.csv) lists **44.3048 dBsm** and **−75.9011 dBm**. This establishes a **traceable field-to-calculation path**, not a separate experimental verification of CST's physics.
+A reader can open the [worst-case TM field](data/cst_native/FEM_W35_Xm0p2_Ym0p2/TM.txt), identify the **5.5 GHz, $\phi_{\mathrm{obs}}=0^\circ,\theta_{\mathrm{obs}}=45^\circ$** row, reconstruct the squared magnitude from the four real/imaginary field components, and apply Eqs. (5) and (7) using the exported convention. The corresponding [link-table row](results/rf/LINK_CASES.csv) lists **44.3048 dBsm** and **−75.9011 dBm**. This establishes a **traceable field-to-calculation path**, not a separate experimental verification of CST's physics.
 
 ## 7. COMSOL structural results
 
@@ -355,14 +355,14 @@ For the full dataset see [MESH_QA.csv](results/fem/MESH_QA.csv), [REFINED_FEM_RE
 
 The uncoded model uses **2 bits per active QPSK subcarrier**. Accordingly,
 
-\[
+$$
 R_{\mathrm{nominal}}=
 20\times10^6\frac{52\times2}{64+16}
-=\mathbf{26\ Mbit/s}.
+=26\ \mathrm{Mbit/s}.
 \tag{12}
-\]
+$$
 
-This is the **configuration-derived payload bit rate in the simplified model**, not measured network throughput. The implementation's reported rate applies a factor of \(1-\mathrm{PER}_{\mathrm{observed}}\).
+This is the **configuration-derived payload bit rate in the simplified model**, not measured network throughput. The implementation's reported rate applies a factor of $1-\mathrm{PER}_{\mathrm{observed}}$.
 
 ### 8.2 Recorded communication conditions
 
