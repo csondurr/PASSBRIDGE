@@ -113,6 +113,7 @@ The free-space wavelength at the design frequency is
 ```
 
 <p align="right"><sub>(1) — Free-space wavelength at 5.5 GHz</sub></p>
+
 Thus, the nominal 2 m reflector spans approximately **36.7 free-space wavelengths** along each side. This electrical size informs the choice of a high-frequency asymptotic scattering method.
 
 ### 4.2 Skin depth and surface impedance
@@ -124,6 +125,7 @@ For a homogeneous good conductor,
 ```
 
 <p align="right"><sub>(2) — Good-conductor skin depth</sub></p>
+
 With the assumed conductivities and $\mu=\mu_0$, the estimated skin depths at 5.5 GHz are approximately **1.65 µm for zinc** and **2.77 µm for steel**. These are first-order planar-conductor estimates, not measured effective coating impedances.
 
 An approximate good-conductor surface impedance is
@@ -133,6 +135,7 @@ Z_s\simeq(1+j)\sqrt{\frac{\omega\mu}{2\sigma}}
 ```
 
 <p align="right"><sub>(3) — Approximate surface impedance</sub></p>
+
 ### 4.3 Bistatic radar cross section
 
 A passive reflector serving spatially separated transmitter and receiver antennas is assessed using **bistatic** scattering. In far-field form,
@@ -142,6 +145,7 @@ A passive reflector serving spatially separated transmitter and receiver antenna
 ```
 
 <p align="right"><sub>(4) — Bistatic radar cross section</sub></p>
+
 The released postprocessor operates on the specific normalization of the archived CST native complex-field export:
 
 ```math
@@ -149,6 +153,7 @@ The released postprocessor operates on the specific normalization of the archive
 ```
 
 <p align="right"><sub>(5) — CST-export-dependent RCS calculation</sub></p>
+
 **Normalization matters:** Equation (5) reflects the convention used in [DOGRULA_RCS.py](src/pipeline/DOGRULA_RCS.py); it should not be applied to arbitrary electric-field data without establishing the incident amplitude and far-field distance conventions.
 
 The reported receiving direction is **$\theta=45^\circ,\phi=0^\circ$**. The maximum of the exported angular cut is retained as separate information; it is **not substituted** for the fixed receiver direction in the link budget.
@@ -162,6 +167,7 @@ P_r=\frac{\mathrm{EIRP}\,G_r\,\lambda_0^2\,\sigma_b}{(4\pi)^3 R_1^2 R_2^2 L_{\ma
 ```
 
 <p align="right"><sub>(6) — Two-segment bistatic received power (linear units)</sub></p>
+
 where $\mathrm{EIRP}$ already incorporates transmit antenna gain, $G_r$ is the receiver antenna's linear gain, $R_1,R_2$ are the two distances, and $L_{\mathrm{ext}}$ is additional linear loss.
 
 The equivalent calculation in decibel form is
@@ -171,6 +177,7 @@ The equivalent calculation in decibel form is
 ```
 
 <p align="right"><sub>(7) — Two-segment bistatic link budget (decibel units; distances in meters)</sub></p>
+
 All lengths in Eq. (7) are expressed in **meters**.
 
 | Assumed radio parameter | Value |
@@ -190,6 +197,7 @@ N[\mathrm{dBm}]\simeq-174+10\log_{10}(20\times10^6)+7=-93.99\ \mathrm{dBm}
 ```
 
 <p align="right"><sub>(8) — Receiver noise power for 20 MHz and 7 dB noise figure</sub></p>
+
 The listed SNR is calculated as $P_r-N$. None of these values establishes a measured receiver sensitivity or availability probability.
 
 ## 5. Multiphysics simulation workflow
@@ -211,6 +219,9 @@ p=\frac{1}{2}\rho_{\mathrm{air}}C_fV^2
 ```
 
 <p align="right"><sub>(9) — Simplified static wind-pressure model</sub></p>
+
+The case inputs use $\rho_{\mathrm{air}}=1.225\,\mathrm{kg/m^3}$ and $C_f=1.8$; these are modeling assumptions rather than measured site conditions.
+
 | Wind speed | Uniform applied pressure |
 |--:|--:|
 | 15 m/s | 248.0625 Pa |
@@ -228,6 +239,7 @@ The solved COMSOL field exports actual **$u,v,w$** displacements. The front surf
 ```
 
 <p align="right"><sub>(10) — Eight-neighbor inverse-distance-weighted FEM interpolation</sub></p>
+
 where $d_i$ denotes in-plane distance measured in millimeters; the $10^{-4}\,\mathrm{mm}^2$ regularizer follows the implementation in [FEMDEN_STL.py](src/pipeline/FEMDEN_STL.py). At an exactly coincident sample coordinate, the implementation uses that sample directly rather than the weighted average.
 
 Each wind scenario produces **six closed finite-thickness metal solids**: core, front zinc, and back zinc for each of the two panel halves. The repository includes [three displacement tables](data/fem_displacement/) and [geometry manifests](data/geometry_provenance/), rather than 75 redundant full CST projects and intermediate caches.
@@ -243,6 +255,7 @@ At each wind speed, the two pointing axes are sampled using
 ```
 
 <p align="right"><sub>(11) — Two-axis pointing sensitivity sample set</sub></p>
+
 The 5 × 5 pointing grid yields **25 orientations per wind speed**, so the full campaign comprises **75 reflector conditions** and **150 TE/TM field records**. The panel is modeled with finite-conductivity layers in the **SBR asymptotic solver**, not an independent full-wave IE/MLFMM simulation.
 
 Relevant native evidence:
@@ -335,6 +348,7 @@ R_{\mathrm{nominal}}=20\times10^6\frac{52\times2}{64+16}=26\ \mathrm{Mbit/s}
 ```
 
 <p align="right"><sub>(12) — Uncoded QPSK-OFDM nominal modeled payload rate</sub></p>
+
 This is the **configuration-derived payload bit rate in the simplified model**, not measured network throughput. The implementation's reported rate applies a factor of $1-\mathrm{PER}_{\mathrm{observed}}$.
 
 ### 8.2 Recorded communication conditions
